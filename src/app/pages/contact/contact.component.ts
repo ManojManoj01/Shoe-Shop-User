@@ -318,7 +318,8 @@ export class ContactComponent {
       message: val.message?.trim()
     };
 
-    this.http.post<any>(`${environment.apiUrl}/contact`, payload).pipe(
+    const contactUrl = `${(environment.apiUrl || 'https://shoe-shop-backend-1-fpu4.onrender.com').replace(/\/api\/?$/, '')}/api/contact`;
+    this.http.post<any>(contactUrl, payload).pipe(
       catchError(() => of({ success: true, message: 'Message dispatched successfully!' }))
     ).subscribe({
       next: (res) => {

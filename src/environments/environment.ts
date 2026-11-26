@@ -1,6 +1,6 @@
 export const environment = {
-  production: false,
-  apiUrl: 'http://localhost:8080/api',
+  production: true,
+  apiUrl: 'https://shoe-shop-backend-1-fpu4.onrender.com',
   shopInfo: {
     name: 'Palani Footwear Shop',
     shortName: 'Palani Footwear',

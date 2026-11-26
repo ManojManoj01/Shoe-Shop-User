@@ -42,8 +42,9 @@ export class CartService {
   private http = inject(HttpClient);
   private router = inject(Router);
 
-  private cartApiUrl = `${environment.apiUrl}/cart`;
-  private ordersApiUrl = `${environment.apiUrl}/orders`;
+  private baseBackendUrl = (environment.apiUrl || 'https://shoe-shop-backend-1-fpu4.onrender.com').replace(/\/api\/?$/, '');
+  private cartApiUrl = `${this.baseBackendUrl}/api/cart`;
+  private ordersApiUrl = `${this.baseBackendUrl}/api/orders`;
 
   private itemsSignal = signal<CartItem[]>([]);
   private couponSignal = signal<Coupon | null>(null);

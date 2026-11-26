@@ -40,7 +40,7 @@ export class AuthService {
     return this.profileCompletion() >= 80;
   });
 
-  private authApiUrl = `${environment.apiUrl}/auth`;
+  private authApiUrl = `${(environment.apiUrl || 'https://shoe-shop-backend-1-fpu4.onrender.com').replace(/\/api\/?$/, '')}/api/auth`;
 
   constructor() {
     if (this.isBrowser) {

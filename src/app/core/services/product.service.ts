@@ -97,7 +97,8 @@ function isStoreJunk(dto: any): boolean {
 })
 export class ProductService {
   private readonly http = inject(HttpClient);
-  private readonly apiUrl = `${environment.apiUrl}/products`;
+  private readonly baseBackendUrl = environment.apiUrl.replace(/\/api\/?$/, '');
+  private readonly apiUrl = `${this.baseBackendUrl}/api/products`;
 
   private productsSignal = signal<Product[]>([]);
   private categoriesSignal = signal<Category[]>(getMergedStoreCategories());
@@ -112,7 +113,7 @@ export class ProductService {
     const imageUrl = dto.imageUrl
       ? (dto.imageUrl.startsWith('http')
           ? dto.imageUrl
-          : `http://localhost:8080${dto.imageUrl.startsWith('/') ? '' : '/'}${dto.imageUrl}`)
+          : `${this.baseBackendUrl}${dto.imageUrl.startsWith('/') ? '' : '/'}${dto.imageUrl}`)
       : 'https://placehold.co/600x600?text=Shoe';
 
     const price = Number(dto.price ?? 0);

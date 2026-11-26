@@ -71,7 +71,7 @@ export function computeReviewStats(productId: string): ReviewStats {
 })
 export class ReviewService {
   private http = inject(HttpClient);
-  private apiUrl = `${environment.apiUrl}/products`;
+  private apiUrl = `${(environment.apiUrl || 'https://shoe-shop-backend-1-fpu4.onrender.com').replace(/\/api\/?$/, '')}/api/products`;
 
   public getReviews(productId: string): Observable<ProductReview[]> {
     const local = getLocalReviews(productId);

@@ -180,7 +180,7 @@ export class AuthService {
           if (err.error?.message) {
             errorMsg = err.error.message;
           } else if (err.status === 0) {
-            errorMsg = 'Cannot connect to Spring Boot backend server (http://localhost:8080).';
+            errorMsg = 'Cannot connect to Spring Boot backend server (https://shoe-shop-backend-1-fpu4.onrender.com).';
           }
         } else if (err.message) {
           errorMsg = err.message;
@@ -225,7 +225,7 @@ export class AuthService {
           } else if (err.error?.validationErrors) {
             errorMsg = Object.values(err.error.validationErrors).join(', ');
           } else if (err.status === 0) {
-            errorMsg = 'Cannot connect to Spring Boot backend server (http://localhost:8080).';
+            errorMsg = 'Cannot connect to Spring Boot backend server (https://shoe-shop-backend-1-fpu4.onrender.com).';
           }
         } else if (err.message) {
           errorMsg = err.message;

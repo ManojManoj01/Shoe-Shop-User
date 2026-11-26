@@ -176,7 +176,7 @@ export class ProductService {
       catchError(error => {
         this.productsCache$ = null;
         console.warn(
-          'Could not reach Spring Boot backend at http://localhost:8080/api/products.',
+          'Could not reach Spring Boot backend at https://shoe-shop-backend-1-fpu4.onrender.com/api/products.',
           error?.status === 0 ? 'Backend offline (ECONNREFUSED)' : `HTTP ${error?.status}: ${error?.message || error?.error?.message || 'Error'}`
         );
         this.productsSignal.set([]);
